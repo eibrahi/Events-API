@@ -42,3 +42,11 @@ jobs:
 
       - name: Push Image to Docker Hub
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/events_api:latest
+
+      - name: Deploy to Cloud
+        run: curl ${{ secrets.RENDER_DEPLOYMENT_HOOK }}
+
+      - name: Smoke test
+        run: |
+          sleep 30
+          curl ${{ secrets.RENDER_BASE_URL }}
