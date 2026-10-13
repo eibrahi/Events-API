@@ -49,4 +49,4 @@ jobs:
       - name: Smoke test
         run: |
           sleep 30
-          curl ${{ secrets.RENDER_BASE_URL }}
+          curl ${{ secrets.RENDER_BASE_URL }}/api/health
